@@ -1,6 +1,9 @@
 import 'package:book_app/core/utils/assets.dart';
+import 'package:book_app/features/home/presentstion/views/home_view.dart';
 import 'package:book_app/features/splash/presentation/views/widgets/sliding_text.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../../../../../constents.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -16,18 +19,10 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   @override
   void initState() {
-    animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 2),
-    );
     super.initState();
-    sildingAnimation = Tween<Offset>(
-      end: Offset.zero,
-      begin: const Offset(0, 2),
-    ).animate(animationController);
-    animationController.forward();
+    iniSilldungAnimations();
+    navToHome();
   }
-
   @override
   void dispose() {
     super.dispose();
@@ -43,7 +38,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Center(
-          child: Container(
+          child: SizedBox(
             height: h * .16,
             width: w * .8,
             child: Image.asset(AssetsData.logo, fit: BoxFit.fill),
@@ -53,5 +48,22 @@ class _SplashViewBodyState extends State<SplashViewBody>
         SildingText(sildingAnimation: sildingAnimation),
       ],
     );
+  }
+
+  void navToHome() {
+    Future.delayed(const Duration(seconds: 3),(){
+      Get.to(const HomeView(),transition: Transition.fade, duration: kTranstionDuration);
+    });
+  }
+  void iniSilldungAnimations() {
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
+    );
+    sildingAnimation = Tween<Offset>(
+      end: Offset.zero,
+      begin: const Offset(0, 2),
+    ).animate(animationController);
+    animationController.forward();
   }
 }
