@@ -10,6 +10,7 @@ class BookDetailsViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
 
    return CustomScrollView(
+     physics: const BouncingScrollPhysics(),
      slivers: [
      SliverFillRemaining(
        hasScrollBody: false,

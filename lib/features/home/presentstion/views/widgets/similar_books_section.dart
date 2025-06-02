@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 
+import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
 import 'books_action.dart';
 import 'custom_Book_rating.dart';
@@ -16,7 +17,7 @@ class BookDetalisSection extends StatelessWidget {
     return Column(children: [
       Padding(
         padding: EdgeInsets.symmetric(horizontal: w * .17),
-        child: CustomBookImage(),
+        child: CustomBookImage(imageUrl: AssetsData.testImage,),
       ),
       const SizedBox(height: 34),
       Text("The Jungle Book", style: Styles.textStyle30),
@@ -27,7 +28,7 @@ class BookDetalisSection extends StatelessWidget {
         child: Text("Rudyard Kipling", style: Styles.textStyle18),
       ),
       const SizedBox(height: 16),
-      BookRating(mainAxisAlignment: MainAxisAlignment.center),
+      // BookRating(mainAxisAlignment: MainAxisAlignment.center),
       const SizedBox(height: 34),
       BooksAction(),
     ],);

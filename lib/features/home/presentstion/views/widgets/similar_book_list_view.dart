@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 
+import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
 import 'custom_book_item.dart';
 
@@ -22,7 +23,7 @@ class SimilarBookListView extends StatelessWidget {
             scrollDirection: Axis.horizontal,
 
             itemBuilder: (context, index) {
-              return CustomBookImage();
+              return CustomBookImage(imageUrl: AssetsData.testImage,);
             },
           ),
         ),
