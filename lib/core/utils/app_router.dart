@@ -1,4 +1,5 @@
 
+import 'package:book_app/features/search/presentation/views/search_view.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../Features/Splash/presentation/views/splash_view.dart';
@@ -23,6 +24,10 @@ abstract class AppRouter {
       GoRoute(
         path: kHomeView,
         builder: (context, state) => const HomeView(),
+      ),
+      GoRoute(
+        path: kSearchView,
+        builder: (context, state) => const SearchView(),
       ),
       // GoRoute(
       //   path: kBookDetailsView,
